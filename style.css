@@ -1,0 +1,134 @@
+/* Cores personalizadas para tons lilases e azul pastel */
+:root {
+    --color-lilac-100: #E6E6FA; /* Lavender */
+    --color-lilac-200: #D8BFD8; /* Thistle */
+    --color-lilac-300: #C3B1E1; /* Light Pastel Purple */
+    --color-blue-pastel-100: #ADD8E6; /* Light Blue */
+    --color-blue-pastel-200: #B0E0E6; /* Powder Blue */
+    --color-blue-pastel-300: #87CEEB; /* Sky Blue */
+}
+
+/* Extend Tailwind's default theme with custom colors */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-lilac-100 { background-color: var(--color-lilac-100); }
+.bg-lilac-200 { background-color: var(--color-lilac-200); }
+.bg-lilac-300 { background-color: var(--color-lilac-300); }
+.text-lilac-300 { color: var(--color-lilac-300); }
+.text-lilac-800 { color: #5B3C73; } /* Darker purple for contrast */
+
+.bg-blue-pastel-100 { background-color: var(--color-blue-pastel-100); }
+.bg-blue-pastel-200 { background-color: var(--color-blue-pastel-200); }
+.bg-blue-pastel-300 { background-color: var(--color-blue-pastel-300); }
+.text-blue-pastel-800 { color: #2C5282; } /* Darker blue for contrast */
+
+.border-lilac-200 { border-color: var(--color-lilac-200); }
+.focus-ring-lilac-300:focus { outline: 2px solid var(--color-lilac-300); outline-offset: 2px; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Previne a rolagem horizontal */
+}
+
+/* Animações de rolagem suave */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modal da Galeria */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica no lugar */
+    z-index: 1000; /* Fica no topo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Ativa a rolagem se necessário */
+    background-color: rgba(0,0,0,0.9); /* Preto com opacidade */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Garante que a imagem se ajusta aos limites */
+    border-radius: 1rem; /* Cantos arredondados */
+}
+
+.modal-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 9999px; /* Totalmente arredondado */
+    padding: 0 10px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.prev-next-button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 9999px; /* Totalmente arredondado */
+}
+
+.prev-next-button:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.prev-button {
+    left: 25px;
+    border-radius: 9999px; /* Totalmente arredondado */
+}
+
+.next-button {
+    right: 25px;
+    border-radius: 9999px; /* Totalmente arredondado */
+}
