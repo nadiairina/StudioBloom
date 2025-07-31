@@ -1,11 +1,15 @@
 /* Cores personalizadas para tons lilases e azul pastel */
 :root {
-    --color-lilac-100: #E6E6FA; /* Lavender */
-    --color-lilac-200: #D8BFD8; /* Thistle */
-    --color-lilac-300: #C3B1E1; /* Light Pastel Purple */
-    --color-blue-pastel-100: #ADD8E6; /* Light Blue */
-    --color-blue-pastel-200: #B0E0E6; /* Powder Blue */
-    --color-blue-pastel-300: #87CEEB; /* Sky Blue */
+    --color-lilac-100: #F3E8FF; /* Very light purple */
+    --color-lilac-200: #E9D5FF; /* Light purple */
+    --color-lilac-300: #D8B4FE; /* Medium light purple */
+    --color-lilac-400: #C084FC; /* Medium purple */
+    --color-lilac-800: #6B21A8; /* Deep purple for headings/accents */
+    --color-blue-pastel-100: #E0F2FE; /* Very light blue */
+    --color-blue-pastel-200: #BAE6FD; /* Light blue */
+    --color-blue-pastel-300: #7DD3FC; /* Medium light blue */
+    --color-blue-pastel-400: #38BDF8; /* Medium blue */
+    --color-blue-pastel-800: #0B4F6C; /* Deep blue for headings/accents */
 }
 
 /* Extend Tailwind's default theme with custom colors */
@@ -16,28 +20,43 @@
 .bg-lilac-100 { background-color: var(--color-lilac-100); }
 .bg-lilac-200 { background-color: var(--color-lilac-200); }
 .bg-lilac-300 { background-color: var(--color-lilac-300); }
+.bg-lilac-400 { background-color: var(--color-lilac-400); }
 .text-lilac-300 { color: var(--color-lilac-300); }
-.text-lilac-800 { color: #5B3C73; } /* Darker purple for contrast */
+.text-lilac-400 { color: var(--color-lilac-400); }
+.text-lilac-800 { color: var(--color-lilac-800); }
+.text-lilac-900 { color: #4A148C; } /* Even darker for strong contrast */
 
 .bg-blue-pastel-100 { background-color: var(--color-blue-pastel-100); }
 .bg-blue-pastel-200 { background-color: var(--color-blue-pastel-200); }
 .bg-blue-pastel-300 { background-color: var(--color-blue-pastel-300); }
-.text-blue-pastel-800 { color: #2C5282; } /* Darker blue for contrast */
+.bg-blue-pastel-400 { background-color: var(--color-blue-pastel-400); }
+.text-blue-pastel-300 { color: var(--color-blue-pastel-300); }
+.text-blue-pastel-400 { color: var(--color-blue-pastel-400); }
+.text-blue-pastel-800 { color: var(--color-blue-pastel-800); }
 
+.border-lilac-100 { border-color: var(--color-lilac-100); }
 .border-lilac-200 { border-color: var(--color-lilac-200); }
+.border-lilac-300 { border-color: var(--color-lilac-300); }
+.border-blue-pastel-100 { border-color: var(--color-blue-pastel-100); }
+.border-blue-pastel-200 { border-color: var(--color-blue-pastel-200); }
+.border-blue-pastel-300 { border-color: var(--color-blue-pastel-300); }
+
 .focus-ring-lilac-300:focus { outline: 2px solid var(--color-lilac-300); outline-offset: 2px; }
+.focus-ring-lilac-400:focus { outline: 2px solid var(--color-lilac-400); outline-offset: 2px; }
+
 
 body {
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
     overflow-x: hidden; /* Previne a rolagem horizontal */
+    line-height: 1.6; /* Melhorar a legibilidade */
 }
 
 /* Animações de rolagem suave */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(30px); /* Aumentar o deslocamento inicial */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição mais suave */
 }
 
 .animate-on-scroll.is-visible {
@@ -45,7 +64,15 @@ body {
     transform: translateY(0);
 }
 
-/* Modal da Galeria */
+/* Sombras mais pronunciadas */
+.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+
+/* Sombras internas para secções */
+.shadow-inner-lg { box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06), inset 0 0 0 1px rgba(0, 0, 0, 0.04); }
+
+/* Modal da Galeria (mantido como está, já é funcional e estético) */
 .modal {
     display: none; /* Escondido por padrão */
     position: fixed; /* Fica no lugar */
@@ -66,7 +93,8 @@ body {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain; /* Garante que a imagem se ajusta aos limites */
-    border-radius: 1rem; /* Cantos arredondados */
+    border-radius: 1.5rem; /* Cantos mais arredondados */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Sombra para a imagem no modal */
 }
 
 .modal-caption {
@@ -76,27 +104,28 @@ body {
     max-width: 700px;
     text-align: center;
     color: #ccc;
-    padding: 10px 0;
-    height: 150px;
+    padding: 15px 0; /* Mais padding */
+    font-size: 1.125rem; /* Texto um pouco maior */
 }
 
 .close-button {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 20px; /* Ajustar posição */
+    right: 40px; /* Ajustar posição */
     color: #f1f1f1;
-    font-size: 40px;
+    font-size: 45px; /* Ícone maior */
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
     border-radius: 9999px; /* Totalmente arredondado */
-    padding: 0 10px;
-    background-color: rgba(0,0,0,0.5);
+    padding: 5px 15px; /* Mais padding */
+    background-color: rgba(0,0,0,0.6); /* Fundo um pouco mais escuro */
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: #bbb;
+    color: #fff; /* Cor mais clara no hover */
+    background-color: rgba(0,0,0,0.8);
     text-decoration: none;
     cursor: pointer;
 }
@@ -106,13 +135,12 @@ body {
     position: absolute;
     top: 50%;
     width: auto;
-    padding: 16px;
+    padding: 20px; /* Mais padding */
     margin-top: -50px;
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px; /* Ícone maior */
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
     background-color: rgba(0,0,0,0.5);
@@ -124,11 +152,9 @@ body {
 }
 
 .prev-button {
-    left: 25px;
-    border-radius: 9999px; /* Totalmente arredondado */
+    left: 30px; /* Ajustar posição */
 }
 
 .next-button {
-    right: 25px;
-    border-radius: 9999px; /* Totalmente arredondado */
+    right: 30px; /* Ajustar posição */
 }
