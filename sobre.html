@@ -53,17 +53,18 @@
     </header>
 
     <!-- Navegação Mobile (Menu de Sobreposição - Oculto por padrão) -->
-    <nav id="mainNav" class="fixed top-0 left-0 w-full h-full bg-lilac-200 z-50 flex-col items-center justify-center text-2xl font-semibold transition-transform duration-300 ease-in-out transform -translate-x-full hidden">
+    <!-- Ajustado para alinhar à direita e diminuir o tamanho da letra -->
+    <nav id="mainNav" class="fixed top-0 right-0 w-full h-full bg-lilac-200 z-50 flex-col items-end justify-start pt-20 pr-6 transition-transform duration-300 ease-in-out transform translate-x-full hidden">
         <!-- Botão para fechar o menu -->
         <button id="closeNavBtn" class="absolute top-6 right-6 text-gray-800 hover:text-lilac-800 focus:outline-none focus:ring-2 focus:ring-lilac-400 rounded-md p-2">
             <i class="fas fa-times text-4xl"></i>
         </button>
         <!-- Links do menu com espaçamento e largura ajustados para lista vertical -->
-        <a href="index.html" class="block text-lilac-800 hover:text-lilac-600 transition duration-300 ease-in-out px-6 py-4 rounded-lg mb-4 w-11/12 max-w-sm text-center bg-white shadow-md hover:bg-lilac-100 text-4xl" onclick="closeNav()">Home</a>
-        <a href="sobre.html" class="block text-lilac-800 hover:text-lilac-600 transition duration-300 ease-in-out px-6 py-4 rounded-lg mb-4 w-11/12 max-w-sm text-center bg-white shadow-md hover:bg-lilac-100 text-4xl" onclick="closeNav()">Sobre</a>
-        <a href="servicos.html" class="block text-lilac-800 hover:text-lilac-600 transition duration-300 ease-in-out px-6 py-4 rounded-lg mb-4 w-11/12 max-w-sm text-center bg-white shadow-md hover:bg-lilac-100 text-4xl" onclick="closeNav()">Serviços</a>
-        <a href="galeria.html" class="block text-lilac-800 hover:text-lilac-600 transition duration-300 ease-in-out px-6 py-4 rounded-lg mb-4 w-11/12 max-w-sm text-center bg-white shadow-md hover:bg-lilac-100 text-4xl" onclick="closeNav()">Galeria</a>
-        <a href="contacto.html" class="block text-lilac-800 hover:text-lilac-600 transition duration-300 ease-in-out px-6 py-4 rounded-lg mb-4 w-11/12 max-w-sm text-center bg-white shadow-md hover:bg-lilac-100 text-4xl" onclick="closeNav()">Contacto</a>
+        <a href="index.html" class="block text-lilac-800 hover:text-lilac-600 transition duration-300 ease-in-out px-6 py-3 rounded-lg mb-3 w-11/12 max-w-sm text-right bg-white shadow-md hover:bg-lilac-100 text-3xl" onclick="closeNav()">Home</a>
+        <a href="sobre.html" class="block text-lilac-800 hover:text-lilac-600 transition duration-300 ease-in-out px-6 py-3 rounded-lg mb-3 w-11/12 max-w-sm text-right bg-white shadow-md hover:bg-lilac-100 text-3xl" onclick="closeNav()">Sobre</a>
+        <a href="servicos.html" class="block text-lilac-800 hover:text-lilac-600 transition duration-300 ease-in-out px-6 py-3 rounded-lg mb-3 w-11/12 max-w-sm text-right bg-white shadow-md hover:bg-lilac-100 text-3xl" onclick="closeNav()">Serviços</a>
+        <a href="galeria.html" class="block text-lilac-800 hover:text-lilac-600 transition duration-300 ease-in-out px-6 py-3 rounded-lg mb-3 w-11/12 max-w-sm text-right bg-white shadow-md hover:bg-lilac-100 text-3xl" onclick="closeNav()">Galeria</a>
+        <a href="contacto.html" class="block text-lilac-800 hover:text-lilac-600 transition duration-300 ease-in-out px-6 py-3 rounded-lg mb-3 w-11/12 max-w-sm text-right bg-white shadow-md hover:bg-lilac-100 text-3xl" onclick="closeNav()">Contacto</a>
     </nav>
 
     <main class="pt-48"> <!-- Padding top ajustado para o cabeçalho maior -->
