@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão de Beleza | Contacto</title>
+    <meta name="description" content="Entre em contacto com o Salão Beleza Total para agendamentos e informações.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-lilac-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 px-6 flex flex-col md:flex-row justify-between items-center fixed w-full z-50 rounded-b-xl">
+        <!-- Logotipo -->
+        <div class="mb-4 md:mb-0">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="logotipo.png" alt="Logotipo do Salão" class="h-10 w-auto rounded-md">
+            </a>
+        </div>
+
+        <!-- Botão do Menu Hambúrguer (visível apenas em ecrãs pequenos) -->
+        <button id="hamburgerBtn" class="md:hidden text-gray-700 hover:text-lilac-800 focus:outline-none focus:ring-2 focus:ring-lilac-300 rounded-md p-2">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+
+        <!-- Navegação (oculta por padrão em ecrãs pequenos, visível em ecrãs médios e maiores) -->
+        <nav id="mainNav" class="hidden md:flex flex-col md:flex-row justify-center md:justify-end gap-x-6 gap-y-2 text-lg font-medium w-full md:w-auto mt-4 md:mt-0">
+            <a href="index.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Home</a>
+            <a href="sobre.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Sobre</a>
+            <a href="servicos.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Serviços</a>
+            <a href="galeria.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Galeria</a>
+            <a href="contacto.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Contacto</a>
+        </nav>
+
+        <!-- Ícones de Redes Sociais -->
+        <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" target="_blank" aria-label="Facebook" class="text-gray-600 hover:text-blue-600 transition duration-300 ease-in-out text-2xl rounded-full p-2 hover:bg-blue-100">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-pink-500 transition duration-300 ease-in-out text-2xl rounded-full p-2 hover:bg-pink-100">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" target="_blank" aria-label="WhatsApp" class="text-gray-600 hover:text-green-500 transition duration-300 ease-in-out text-2xl rounded-full p-2 hover:bg-green-100">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-28"> <!-- Padding top para compensar o cabeçalho fixo -->
+
+        <!-- Secção Contacto -->
+        <section id="contacto" class="py-20 px-4 bg-lilac-100 rounded-b-3xl shadow-lg">
+            <div class="container mx-auto text-center animate-on-scroll">
+                <h2 class="text-4xl font-bold text-lilac-800 mb-12">Contacte-nos</h2>
+
+                <div class="flex flex-col md:flex-row gap-12 items-start justify-center">
+                    <!-- Formulário de Contacto -->
+                    <div class="md:w-1/2 bg-white p-8 rounded-2xl shadow-xl border-4 border-blue-pastel-200">
+                        <h3 class="text-2xl font-semibold text-blue-pastel-800 mb-6">Envie-nos uma Mensagem</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 text-sm font-bold mb-2 text-left">Nome Completo</label>
+                                <input type="text" id="name" name="name" required
+                                       class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus-ring-lilac-300 border-lilac-200">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 text-sm font-bold mb-2 text-left">Email</label>
+                                <input type="email" id="email" name="email" required
+                                       class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus-ring-lilac-300 border-lilac-200">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 text-sm font-bold mb-2 text-left">Telefone (Opcional)</label>
+                                <input type="tel" id="phone" name="phone"
+                                       class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus-ring-lilac-300 border-lilac-200">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 text-sm font-bold mb-2 text-left">Sua Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required
+                                          class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus-ring-lilac-300 border-lilac-200"></textarea>
+                            </div>
+                            <button type="submit"
+                                    class="bg-lilac-300 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-lilac-200 transition duration-300 ease-in-out transform hover:scale-105 w-full">
+                                Enviar Mensagem
+                            </button>
+                            <div id="formMessage" class="mt-4 text-center text-sm font-semibold"></div>
+                        </form>
+                    </div>
+
+                    <!-- Informações de Contacto e Mapa -->
+                    <div class="md:w-1/2 bg-white p-8 rounded-2xl shadow-xl border-4 border-lilac-200">
+                        <h3 class="text-2xl font-semibold text-lilac-800 mb-6">Nossos Contactos</h3>
+                        <div class="text-left text-gray-700 space-y-4 mb-8">
+                            <p class="flex items-center"><i class="fas fa-map-marker-alt text-blue-pastel-300 mr-3 text-xl"></i>Rua da Beleza, 123, 1000-000 Lisboa, Portugal</p>
+                            <p class="flex items-center"><i class="fas fa-phone-alt text-blue-pastel-300 mr-3 text-xl"></i>+351 210 000 000</p>
+                            <p class="flex items-center"><i class="fas fa-envelope text-blue-pastel-300 mr-3 text-xl"></i>info@salaobelezaconosco.pt</p>
+                            <p class="flex items-center"><i class="fas fa-clock text-blue-pastel-300 mr-3 text-xl"></i>Seg-Sex: 9h-19h | Sáb: 9h-13h</p>
+                        </div>
+                        <!-- Placeholder para o iframe do Google Maps -->
+                        <div class="w-full h-64 bg-gray-200 rounded-xl overflow-hidden shadow-md">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2488.087289569769!2d-9.13933748423455!3d38.7222529795995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19339a0b12345%3A0x6e7890abcdef12345!2sLisboa%2C%20Portugal!5e0!3m2!1spt-PT!2spt!4m5!3m4!1s0x0%3A0x0!8m2!3d38.7222529!4d-9.1393375"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-xl">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 text-center rounded-t-xl">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Salão Beleza Total. Todos os direitos reservados.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="hover:text-lilac-300 transition duration-300 ease-in-out">Política de Privacidade</a>
+                <a href="#" class="hover:text-lilac-300 transition duration-300 ease-in-out">Termos de Serviço</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link para o JavaScript personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>
