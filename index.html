@@ -18,19 +18,28 @@
     <!-- Header -->
     <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center fixed w-full z-50 rounded-b-xl">
         <!-- Logotipo -->
-        <div class="mb-4 md:mb-0">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="logotipo.png" alt="Logotipo do Salão" class="h-16 w-auto rounded-md">
+        <div class="flex items-center space-x-2">
+            <a href="index.html">
+                <img src="logotipo.png" alt="Logotipo do Salão" class="h-20 w-auto rounded-md">
             </a>
         </div>
 
-        <!-- Botão do Menu Hambúrguer (sempre visível) -->
-        <button id="hamburgerBtn" class="text-gray-700 hover:text-lilac-800 focus:outline-none focus:ring-2 focus:ring-lilac-300 rounded-md p-2">
+        <!-- Navegação Desktop (visível em ecrãs médios e maiores) -->
+        <nav class="hidden md:flex justify-center md:justify-end gap-x-6 text-lg font-medium">
+            <a href="index.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Home</a>
+            <a href="sobre.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Sobre</a>
+            <a href="servicos.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Serviços</a>
+            <a href="galeria.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Galeria</a>
+            <a href="contacto.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Contacto</a>
+        </nav>
+
+        <!-- Botão do Menu Hambúrguer (visível apenas em ecrãs pequenos) -->
+        <button id="hamburgerBtn" class="md:hidden text-gray-700 hover:text-lilac-800 focus:outline-none focus:ring-2 focus:ring-lilac-300 rounded-md p-2">
             <i class="fas fa-bars text-2xl"></i>
         </button>
 
-        <!-- Ícones de Redes Sociais (permanecem no cabeçalho) -->
-        <div class="flex space-x-4">
+        <!-- Ícones de Redes Sociais (visíveis apenas em ecrãs médios e maiores) -->
+        <div class="hidden md:flex space-x-4">
             <a href="#" target="_blank" aria-label="Facebook" class="text-gray-600 hover:text-blue-600 transition duration-300 ease-in-out text-2xl rounded-full p-2 hover:bg-blue-100">
                 <i class="fab fa-facebook-f"></i>
             </a>
@@ -43,8 +52,8 @@
         </div>
     </header>
 
-    <!-- Navegação (Menu de Sobreposição - Oculto por padrão) -->
-    <nav id="mainNav" class="hidden fixed top-0 left-0 w-full h-full bg-white z-40 flex-col items-center justify-center text-xl font-medium transition-transform duration-300 ease-in-out transform -translate-x-full">
+    <!-- Navegação Mobile (Menu de Sobreposição - Oculto por padrão) -->
+    <nav id="mainNav" class="fixed top-0 left-0 w-full h-full bg-white z-50 flex-col items-center justify-center text-xl font-medium transition-transform duration-300 ease-in-out transform -translate-x-full hidden">
         <!-- Botão para fechar o menu -->
         <button id="closeNavBtn" class="absolute top-4 right-6 text-gray-700 hover:text-lilac-800 focus:outline-none focus:ring-2 focus:ring-lilac-300 rounded-md p-2">
             <i class="fas fa-times text-3xl"></i>
