@@ -105,10 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==================================== */
     /* Lógica do Modal da Galeria (apenas na página galeria.html) */
     /* ==================================== */
-    const galleryItems = document.querySelectorAll('#galeria .group');
+    // A correção está aqui: Agora seleciona os elementos <img> que contêm os dados
+    const galleryImages = document.querySelectorAll('#galeria img'); 
     const galleryModal = document.getElementById('galleryModal');
 
-    if (galleryItems.length > 0 && galleryModal) {
+    if (galleryImages.length > 0 && galleryModal) {
         const modalImage = document.getElementById('modalImage');
         const modalCaption = document.getElementById('modalCaption');
         const closeModalBtn = document.getElementById('closeModalBtn');
@@ -116,16 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextImageBtn = document.getElementById('nextImageBtn');
 
         let currentImageIndex = 0;
-        const images = Array.from(galleryItems).map(item => ({
-            src: item.dataset.image,
-            caption: item.dataset.caption
-        }));
-
+        
         const openModal = (index) => {
             currentImageIndex = index;
+            const image = galleryImages[currentImageIndex];
             galleryModal.style.display = 'flex';
-            modalImage.src = images[currentImageIndex].src;
-            modalCaption.textContent = images[currentImageIndex].caption;
+            modalImage.src = image.getAttribute('data-src');
+            modalCaption.textContent = image.getAttribute('data-caption');
         };
 
         const closeModal = () => {
@@ -133,16 +131,16 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const showPrevImage = () => {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
             openModal(currentImageIndex);
         };
 
         const showNextImage = () => {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
             openModal(currentImageIndex);
         };
 
-        galleryItems.forEach((item, index) => {
+        galleryImages.forEach((item, index) => {
             item.addEventListener('click', () => {
                 openModal(index);
             });
@@ -159,5 +157,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
 });
