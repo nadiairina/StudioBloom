@@ -121,16 +121,16 @@ if (galleryItems.length > 0 && galleryModal) {
     }
 }
 
-// JavaScript para o Menu Hambúrguer (adicionado para todas as páginas)
+// JavaScript para o Menu Hambúrguer (apenas para mobile)
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mainNav = document.getElementById('mainNav');
-const closeNavBtn = document.getElementById('closeNavBtn'); // Novo botão de fechar
+const closeNavBtn = document.getElementById('closeNavBtn');
 
 if (hamburgerBtn && mainNav) {
     hamburgerBtn.addEventListener('click', () => {
-        mainNav.classList.remove('hidden'); // Torna o menu visível
+        mainNav.classList.remove('hidden'); // Remove hidden para tornar o menu visível
         mainNav.classList.remove('-translate-x-full'); // Remove a translação para fora da tela
-        mainNav.classList.add('translate-x-0'); // Desliza o menu para dentro da tela
+        mainNav.classList.add('translate-x-0'); // Desliza o menu para dentro da tela (visível)
     });
 
     // Função para fechar o menu
