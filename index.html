@@ -16,30 +16,21 @@
 <body class="bg-lilac-100 text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-md py-4 px-6 flex flex-col md:flex-row justify-between items-center fixed w-full z-50 rounded-b-xl">
+    <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center fixed w-full z-50 rounded-b-xl">
         <!-- Logotipo -->
         <div class="mb-4 md:mb-0">
             <a href="index.html" class="flex items-center space-x-2">
-                <img src="logotipo.png" alt="Logotipo do Salão" class="h-10 w-auto rounded-md">
+                <img src="logotipo.png" alt="Logotipo do Salão" class="h-16 w-auto rounded-md">
             </a>
         </div>
 
-        <!-- Botão do Menu Hambúrguer (visível apenas em ecrãs pequenos) -->
-        <button id="hamburgerBtn" class="md:hidden text-gray-700 hover:text-lilac-800 focus:outline-none focus:ring-2 focus:ring-lilac-300 rounded-md p-2">
+        <!-- Botão do Menu Hambúrguer (sempre visível) -->
+        <button id="hamburgerBtn" class="text-gray-700 hover:text-lilac-800 focus:outline-none focus:ring-2 focus:ring-lilac-300 rounded-md p-2">
             <i class="fas fa-bars text-2xl"></i>
         </button>
 
-        <!-- Navegação (oculta por padrão em ecrãs pequenos, visível em ecrãs médios e maiores) -->
-        <nav id="mainNav" class="hidden md:flex flex-col md:flex-row justify-center md:justify-end gap-x-6 gap-y-2 text-lg font-medium w-full md:w-auto mt-4 md:mt-0">
-            <a href="index.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Home</a>
-            <a href="sobre.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Sobre</a>
-            <a href="servicos.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Serviços</a>
-            <a href="galeria.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Galeria</a>
-            <a href="contacto.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-3 py-1 rounded-md">Contacto</a>
-        </nav>
-
-        <!-- Ícones de Redes Sociais -->
-        <div class="flex space-x-4 mt-4 md:mt-0">
+        <!-- Ícones de Redes Sociais (permanecem no cabeçalho) -->
+        <div class="flex space-x-4">
             <a href="#" target="_blank" aria-label="Facebook" class="text-gray-600 hover:text-blue-600 transition duration-300 ease-in-out text-2xl rounded-full p-2 hover:bg-blue-100">
                 <i class="fab fa-facebook-f"></i>
             </a>
@@ -52,9 +43,22 @@
         </div>
     </header>
 
+    <!-- Navegação (Menu de Sobreposição - Oculto por padrão) -->
+    <nav id="mainNav" class="hidden fixed top-0 left-0 w-full h-full bg-white z-40 flex-col items-center justify-center text-xl font-medium transition-transform duration-300 ease-in-out transform -translate-x-full">
+        <!-- Botão para fechar o menu -->
+        <button id="closeNavBtn" class="absolute top-4 right-6 text-gray-700 hover:text-lilac-800 focus:outline-none focus:ring-2 focus:ring-lilac-300 rounded-md p-2">
+            <i class="fas fa-times text-3xl"></i>
+        </button>
+        <a href="index.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-4 py-3 rounded-md mb-4" onclick="closeNav()">Home</a>
+        <a href="sobre.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-4 py-3 rounded-md mb-4" onclick="closeNav()">Sobre</a>
+        <a href="servicos.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-4 py-3 rounded-md mb-4" onclick="closeNav()">Serviços</a>
+        <a href="galeria.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-4 py-3 rounded-md mb-4" onclick="closeNav()">Galeria</a>
+        <a href="contacto.html" class="text-gray-700 hover:text-lilac-800 transition duration-300 ease-in-out px-4 py-3 rounded-md mb-4" onclick="closeNav()">Contacto</a>
+    </nav>
+
     <main class="pt-28"> <!-- Padding top para compensar o cabeçalho fixo -->
 
-        <!-- Secção Home -->
+        <!-- Secção Principal / Hero -->
         <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-lilac-200 to-blue-pastel-100 text-center py-16 px-4 rounded-b-3xl shadow-lg">
             <div class="container mx-auto animate-on-scroll">
                 <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
@@ -65,6 +69,73 @@
                 </p>
                 <a href="servicos.html" class="bg-white text-lilac-800 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-lilac-300 hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
                     Descubra os Nossos Serviços
+                </a>
+            </div>
+        </section>
+
+        <!-- Secção Bem-vindo ao Nosso Salão (Nova) -->
+        <section id="bem-vindo" class="py-20 px-4 bg-white rounded-t-3xl shadow-inner">
+            <div class="container mx-auto text-center animate-on-scroll">
+                <h2 class="text-4xl font-bold text-lilac-800 mb-8">Bem-vindo ao Salão Beleza Total</h2>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/C3B1E1/FFFFFF?text=Bem-Vindo" alt="Interior acolhedor do salão" class="w-full h-auto rounded-2xl shadow-xl">
+                    </div>
+                    <div class="md:w-1/2 text-left">
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                            No Salão Beleza Total, cada visita é uma oportunidade para se reconectar consigo mesma. Criámos um ambiente onde o conforto e a excelência se encontram, proporcionando-lhe momentos de puro relaxamento e resultados que a farão sentir-se radiante.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            A nossa paixão é realçar a sua beleza única, com serviços personalizados e uma equipa dedicada que se preocupa com cada detalhe. Venha desfrutar de uma experiência transformadora!
+                        </p>
+                        <a href="sobre.html" class="inline-block mt-6 bg-blue-pastel-300 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-blue-pastel-200 transition duration-300 ease-in-out transform hover:scale-105">
+                            Saiba Mais Sobre Nós
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção Porquê Escolher-nos? (Nova) -->
+        <section id="porque-escolher" class="py-20 px-4 bg-lilac-100">
+            <div class="container mx-auto text-center animate-on-scroll">
+                <h2 class="text-4xl font-bold text-lilac-800 mb-12">Porquê Escolher o Salão Beleza Total?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-blue-pastel-200 transform hover:scale-105 transition duration-300 ease-in-out">
+                        <i class="fas fa-star text-5xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-2xl font-semibold text-blue-pastel-800 mb-3">Profissionais Experientes</h3>
+                        <p class="text-gray-700">A nossa equipa é composta por especialistas apaixonados e em constante atualização.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-lilac-200 transform hover:scale-105 transition duration-300 ease-in-out">
+                        <i class="fas fa-magic text-5xl text-lilac-300 mb-4"></i>
+                        <h3 class="text-2xl font-semibold text-lilac-800 mb-3">Serviços Personalizados</h3>
+                        <p class="text-gray-700">Cada tratamento é adaptado às suas necessidades e desejos únicos.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-blue-pastel-200 transform hover:scale-105 transition duration-300 ease-in-out">
+                        <i class="fas fa-spa text-5xl text-green-500 mb-4"></i>
+                        <h3 class="text-2xl font-semibold text-blue-pastel-800 mb-3">Ambiente Relaxante</h3>
+                        <p class="text-gray-700">Um espaço pensado para o seu bem-estar e total descontração.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção Testemunhos de Clientes (Nova) -->
+        <section id="testemunhos" class="py-20 px-4 bg-blue-pastel-100 rounded-b-3xl shadow-lg">
+            <div class="container mx-auto text-center animate-on-scroll">
+                <h2 class="text-4xl font-bold text-blue-pastel-800 mb-12">O Que Dizem os Nossos Clientes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-lilac-200">
+                        <p class="text-lg italic text-gray-700 mb-4">"Adoro vir aqui! O atendimento é sempre impecável e os resultados superam as minhas expectativas. Recomendo vivamente!"</p>
+                        <p class="font-semibold text-lilac-800">- Ana Silva</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-blue-pastel-200">
+                        <p class="text-lg italic text-gray-700 mb-4">"Desde que descobri o Salão Beleza Total, não troco por nada. Profissionalismo e simpatia em cada visita. Sinto-me sempre renovada!"</p>
+                        <p class="font-semibold text-blue-pastel-800">- Sofia Martins</p>
+                    </div>
+                </div>
+                <a href="contacto.html" class="inline-block mt-12 bg-lilac-300 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-lilac-200 transition duration-300 ease-in-out transform hover:scale-105">
+                    Agende a Sua Visita!
                 </a>
             </div>
         </section>
