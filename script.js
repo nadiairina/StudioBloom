@@ -12,7 +12,11 @@ const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); // Deixa de observar depois de visível
+            // Opcional: para que a animação ocorra apenas uma vez
+            // observer.unobserve(entry.target);
+        } else {
+            // Opcional: para que a animação se reverta ao sair da vista
+            // entry.target.classList.remove('is-visible');
         }
     });
 }, observerOptions);
