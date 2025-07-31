@@ -105,11 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==================================== */
     /* Lógica do Modal da Galeria (apenas na página galeria.html) */
     /* ==================================== */
-    // A correção está aqui: Agora seleciona os elementos <img> que contêm os dados
-    const galleryImages = document.querySelectorAll('#galeria img'); 
+    // Correção: Selecionar os divs que são clicáveis e, a partir deles, encontrar a imagem.
+    const galleryItems = document.querySelectorAll('#galeria .group');
     const galleryModal = document.getElementById('galleryModal');
 
-    if (galleryImages.length > 0 && galleryModal) {
+    if (galleryItems.length > 0 && galleryModal) {
         const modalImage = document.getElementById('modalImage');
         const modalCaption = document.getElementById('modalCaption');
         const closeModalBtn = document.getElementById('closeModalBtn');
@@ -120,7 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const openModal = (index) => {
             currentImageIndex = index;
-            const image = galleryImages[currentImageIndex];
+            // Encontrar a imagem dentro do div clicado
+            const image = galleryItems[currentImageIndex].querySelector('img');
             galleryModal.style.display = 'flex';
             modalImage.src = image.getAttribute('data-src');
             modalCaption.textContent = image.getAttribute('data-caption');
@@ -131,16 +132,16 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const showPrevImage = () => {
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
             openModal(currentImageIndex);
         };
 
         const showNextImage = () => {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
             openModal(currentImageIndex);
         };
 
-        galleryImages.forEach((item, index) => {
+        galleryItems.forEach((item, index) => {
             item.addEventListener('click', () => {
                 openModal(index);
             });
