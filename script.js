@@ -124,21 +124,33 @@ if (galleryItems.length > 0 && galleryModal) {
 // JavaScript para o Menu Hambúrguer (adicionado para todas as páginas)
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mainNav = document.getElementById('mainNav');
+const closeNavBtn = document.getElementById('closeNavBtn'); // Novo botão de fechar
 
 if (hamburgerBtn && mainNav) {
     hamburgerBtn.addEventListener('click', () => {
-        mainNav.classList.toggle('hidden');
-        mainNav.classList.toggle('flex');
-        mainNav.classList.toggle('flex-col'); // Garante que os links ficam em coluna no mobile
-        mainNav.classList.toggle('absolute'); // Para posicionar o menu sobre o conteúdo
-        mainNav.classList.toggle('top-full'); // Abaixo do cabeçalho
-        mainNav.classList.toggle('left-0');
-        mainNav.classList.toggle('w-full');
-        mainNav.classList.toggle('bg-white'); // Fundo branco para o menu aberto
-        mainNav.classList.toggle('shadow-lg'); // Sombra para o menu aberto
-        mainNav.classList.toggle('py-4'); // Padding para o menu aberto
-        mainNav.classList.toggle('px-6'); // Padding para o menu aberto
-        mainNav.classList.toggle('rounded-b-xl'); // Cantos arredondados
-        mainNav.classList.toggle('z-40'); // Z-index para ficar abaixo do cabeçalho fixo
+        mainNav.classList.remove('hidden'); // Torna o menu visível
+        mainNav.classList.remove('-translate-x-full'); // Remove a translação para fora da tela
+        mainNav.classList.add('translate-x-0'); // Desliza o menu para dentro da tela
+    });
+
+    // Função para fechar o menu
+    const closeNav = () => {
+        mainNav.classList.remove('translate-x-0'); // Desliza o menu para fora da tela
+        mainNav.classList.add('-translate-x-full'); // Adiciona a translação para fora da tela
+        // Adiciona a classe 'hidden' após a transição para garantir que não interfere com outros elementos
+        mainNav.addEventListener('transitionend', function handler() {
+            mainNav.classList.add('hidden');
+            mainNav.removeEventListener('transitionend', handler);
+        }, { once: true }); // Executa o listener apenas uma vez
+    };
+
+    // Event listener para o botão de fechar
+    if (closeNavBtn) {
+        closeNavBtn.addEventListener('click', closeNav);
+    }
+
+    // Fecha o menu quando um link é clicado
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeNav);
     });
 }
