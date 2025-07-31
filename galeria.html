@@ -12,6 +12,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Link para o CSS personalizado -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS para o modal, garantindo que ele está oculto por padrão */
+        .modal {
+            display: none; /* Alterado para garantir que o modal está oculto inicialmente */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        .modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        .close-button, .prev-next-button {
+            position: absolute;
+            top: 15px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            user-select: none;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        .close-button {
+            right: 35px;
+        }
+
+        .close-button:hover, .close-button:focus, .prev-next-button:hover {
+            color: #bbb;
+        }
+
+        .prev-next-button {
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+        }
+
+        .prev-button {
+            left: 0;
+        }
+
+        .next-button {
+            right: 0;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+    </style>
 </head>
 <body class="bg-lilac-100 text-gray-800">
 
@@ -86,7 +164,7 @@
                     <!-- Item da Galeria 2 -->
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-blue-pastel-100">
                         <img src="cortecurl.png" class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/ADD8E6/2C5282?text=Maquiagem+2"
+                             data-src="https://placehold.co/800x600/ADD8E6/2C5282?text=Caracois"
                              data-caption="Caracóis Hidratados e sem Frizz.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
@@ -95,7 +173,7 @@
                     <!-- Item da Galeria 3 -->
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-lilac-100">
                         <img src="corteh.png" class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/E6E6FA/5B3C73?text=Unhas+3"
+                             data-src="https://placehold.co/800x600/E6E6FA/5B3C73?text=Corte+Masculino"
                              data-caption="Corte Masculino.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
@@ -104,7 +182,7 @@
                     <!-- Item da Galeria 4 -->
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-blue-pastel-100">
                         <img src="unhasm.png" class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/B0E0E6/2C5282?text=Corte+4"
+                             data-src="https://placehold.co/800x600/B0E0E6/2C5282?text=Unhas"
                              data-caption="Manicure Criativa.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
@@ -113,7 +191,7 @@
                     <!-- Item da Galeria 5 -->
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-lilac-100">
                         <img src="unhasm2.png"  class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/C3B1E1/FFFFFF?text=Tratamento+5"
+                             data-src="https://placehold.co/800x600/C3B1E1/FFFFFF?text=Manicure"
                              data-caption="Manicure Francesa.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
@@ -122,7 +200,7 @@
                     <!-- Item da Galeria 6 -->
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-blue-pastel-100">
                         <img src="unhasp.png"  class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/87CEEB/2C5282?text=Estetica+6"
+                             data-src="https://placehold.co/800x600/87CEEB/2C5282?text=Pedicure"
                              data-caption="Pedicure Elegante.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
@@ -131,7 +209,7 @@
                     <!-- Novos Itens da Galeria (7 a 12) -->
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-lilac-100">
                         <img src="spam.png" class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/DDA0DD/FFFFFF?text=Manicure+Francesa"
+                             data-src="https://placehold.co/800x600/DDA0DD/FFFFFF?text=Spa+Feminino"
                              data-caption="Spa Relaxante.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
@@ -139,7 +217,7 @@
                     </div>
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-blue-pastel-100">
                         <img src="spah.png" class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/9ACD32/FFFFFF?text=Corte+Masculino"
+                             data-src="https://placehold.co/800x600/9ACD32/FFFFFF?text=Spa+Masculino"
                              data-caption="Spa Refrescante.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
@@ -147,7 +225,7 @@
                     </div>
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-lilac-100">
                         <img src="depilm.png"  class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/FFD700/FFFFFF?text=Coloracao+Cabelo"
+                             data-src="https://placehold.co/800x600/FFD700/FFFFFF?text=Depilacao+Feminina"
                              data-caption="Depilação Feminina Completa.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
@@ -155,7 +233,7 @@
                     </div>
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-blue-pastel-100">
                         <img src="depilh.png" class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/FF69B4/FFFFFF?text=Pedicure+Relaxante"
+                             data-src="https://placehold.co/800x600/FF69B4/FFFFFF?text=Depilacao+Masculina"
                              data-caption="Depilação Masculina Completa.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
@@ -163,7 +241,7 @@
                     </div>
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-lilac-100">
                         <img src="makeup.png" class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/DA70D6/FFFFFF?text=Tratamento+Facial"
+                             data-src="https://placehold.co/800x600/DA70D6/FFFFFF?text=Maquilhagem"
                              data-caption="Maquilhagem Arrebatadora.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
@@ -171,7 +249,7 @@
                     </div>
                     <div class="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border-4 border-blue-pastel-100">
                         <img src="makeup2.png" class="w-full h-56 object-cover rounded-2xl group-hover:opacity-75 transition-opacity"
-                             data-src="https://placehold.co/800x600/40E0D0/FFFFFF?text=Design+Sobrancelhas"
+                             data-src="https://placehold.co/800x600/40E0D0/FFFFFF?text=Maquilhagem+Classica"
                              data-caption="Maquilhagem Clássica.">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                             <i class="fas fa-search-plus text-white text-4xl"></i>
