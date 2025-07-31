@@ -4,7 +4,10 @@
     --color-lilac-200: #E9D5FF; /* Light purple */
     --color-lilac-300: #D8B4FE; /* Medium light purple */
     --color-lilac-400: #C084FC; /* Medium purple */
+    --color-lilac-600: #A78BFA; /* Slightly darker purple for hover */
     --color-lilac-800: #6B21A8; /* Deep purple for headings/accents */
+    --color-lilac-900: #4A148C; /* Even darker for strong contrast */
+
     --color-blue-pastel-100: #E0F2FE; /* Very light blue */
     --color-blue-pastel-200: #BAE6FD; /* Light blue */
     --color-blue-pastel-300: #7DD3FC; /* Medium light blue */
@@ -23,8 +26,9 @@
 .bg-lilac-400 { background-color: var(--color-lilac-400); }
 .text-lilac-300 { color: var(--color-lilac-300); }
 .text-lilac-400 { color: var(--color-lilac-400); }
+.text-lilac-600 { color: var(--color-lilac-600); } /* Added for hover state */
 .text-lilac-800 { color: var(--color-lilac-800); }
-.text-lilac-900 { color: #4A148C; } /* Even darker for strong contrast */
+.text-lilac-900 { color: var(--color-lilac-900); }
 
 .bg-blue-pastel-100 { background-color: var(--color-blue-pastel-100); }
 .bg-blue-pastel-200 { background-color: var(--color-blue-pastel-200); }
@@ -52,11 +56,11 @@ body {
     line-height: 1.6; /* Melhorar a legibilidade */
 }
 
-/* Animações de rolagem suave */
+/* Animações de rolagem suave e dinâmicas */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(30px); /* Aumentar o deslocamento inicial */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição mais suave */
+    transform: translateY(40px); /* Aumentar o deslocamento inicial para um efeito mais notável */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Transição mais longa e suave */
 }
 
 .animate-on-scroll.is-visible {
