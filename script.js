@@ -133,14 +133,14 @@ const closeNavBtn = document.getElementById('closeNavBtn');
 if (hamburgerBtn && mainNav) {
     hamburgerBtn.addEventListener('click', () => {
         mainNav.classList.remove('hidden'); // Remove hidden para tornar o menu visível
-        mainNav.classList.remove('-translate-x-full'); // Remove a translação para fora da tela
-        mainNav.classList.add('translate-x-0'); // Desliza o menu para dentro da tela (visível)
+        mainNav.classList.remove('translate-x-full'); // Remove a translação para fora da tela
+        mainNav.classList.add('-translate-x-0'); // Desliza o menu para dentro da tela (visível)
     });
 
     // Função para fechar o menu
     const closeNav = () => {
-        mainNav.classList.remove('translate-x-0'); // Desliza o menu para fora da tela
-        mainNav.classList.add('-translate-x-full'); // Adiciona a translação para fora da tela
+        mainNav.classList.remove('-translate-x-0'); // Desliza o menu para fora da tela
+        mainNav.classList.add('translate-x-full'); // Adiciona a translação para fora da tela
         // Adiciona a classe 'hidden' após a transição para garantir que não interfere com outros elementos
         mainNav.addEventListener('transitionend', function handler() {
             mainNav.classList.add('hidden');
